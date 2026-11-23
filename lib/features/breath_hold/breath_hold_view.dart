@@ -90,14 +90,14 @@ class BreathHoldView extends GetView<BreathHoldController> {
         const SizedBox(height: 6),
         Text(
           isRunning
-              ? 'Đang nín… bình tĩnh, thả lỏng vai'
+              ? 'Thở lại bình thường ngay khi cần'
               : controller.finished.value
               ? (controller.newRecord.value
-                    ? 'KỶ LỤC MỚI: ${stopwatchText(ms)}!'
+                    ? 'Đã ghi nhận ${stopwatchText(ms)}'
                     : ms < 1000
                     ? 'Bấm nhầm rồi, thử lại nhé'
                     : 'Lần này ${stopwatchText(ms)}')
-              : 'Hít thở vài hơi, thở ra hết, rồi chạm để bắt đầu nín',
+              : 'Chạm để ghi thời gian. Không cố nín hoặc thi kỷ lục.',
           style: controller.newRecord.value
               ? serif(24, color: AppColors.coral)
               : body(17, weight: FontWeight.w600),

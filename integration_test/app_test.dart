@@ -27,6 +27,25 @@ void main() {
       await app.main();
       FlutterError.onError = originalErrorHandler;
       await tester.pumpAndSettle(const Duration(seconds: 2));
+      if (find.byKey(const ValueKey('invite-code')).evaluate().isNotEmpty) {
+        await tester.enterText(
+          find.byKey(const ValueKey('invite-code')),
+          'max',
+        );
+        await tester.tap(find.byKey(const ValueKey('invite-submit')));
+        await tester.pumpAndSettle();
+      }
+      if (find.text('Tập thở an toàn').evaluate().isNotEmpty) {
+        await tester.scrollUntilVisible(
+          find.byKey(const ValueKey('safety-check')),
+          350,
+          scrollable: find.byType(Scrollable).first,
+        );
+        await tester.tap(find.byKey(const ValueKey('safety-check')));
+        await tester.pumpAndSettle();
+        await tester.tap(find.byKey(const ValueKey('safety-continue')));
+        await tester.pumpAndSettle();
+      }
       await binding.convertFlutterSurfaceToImage();
       await tester.pumpAndSettle();
       debugPrint("QA: converted surface");

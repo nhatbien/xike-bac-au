@@ -24,7 +24,7 @@ class HomeView extends GetView<HomeController> {
       (
         '/hold',
         'Nín thở vui',
-        'đồng hồ bấm giờ thử sức nín${record > 0 ? ' · kỷ lục ${stopwatchText(record)}' : ''}',
+        'theo dõi thời gian · dừng khi cần thở${record > 0 ? ' · kỷ lục ${stopwatchText(record)}' : ''}',
         'timer',
         AppColors.pink,
         AppColors.coral,
@@ -90,7 +90,7 @@ class HomeView extends GetView<HomeController> {
                 child: Text(
                   stats.sessions.isEmpty
                       ? 'Chưa có buổi nào. Buổi đầu tiên chỉ mất chừng mười lăm phút.'
-                      : 'Đã tập ${stats.sessions.length} buổi · chuỗi ${stats.currentStreak(DateTime.now())} ngày. Thở thêm một nhịp nữa nhé.',
+                      : 'Đã tập ${stats.sessions.length} buổi · chuỗi ${stats.currentStreak(DateTime.now())} ngày. Tập vừa sức và dừng khi cần.',
                   style: body(16),
                 ),
               ),
@@ -148,7 +148,7 @@ class HomeView extends GetView<HomeController> {
         Padding(
           padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
           child: Text(
-            '“Lúc muốn bỏ cuộc, thở thêm một nhịp nữa rồi hẵng tính.”',
+            'Thở lại bình thường bất cứ khi nào cần. Không cố theo hết thời gian của app.',
             style: serif(
               16.5,
               weight: FontWeight.w400,
@@ -176,17 +176,17 @@ class AboutView extends StatelessWidget {
   const AboutView({super.key});
   @override
   Widget build(BuildContext context) => AppPage(
-    title: 'Lời ông Wim',
+    title: 'Giới thiệu',
     children: [
       DashedBorderCard(child: Image.asset('assets/web/dau.jpg')),
       const SizedBox(height: 16),
       Text(
-        '“Tôi biết các bạn thông qua mấy con gà, nên tôi đồng ý cho phép các bạn làm app này. Thực ra thì, các bạn đã làm những điều còn phi thường hơn cả tôi, vì ở chỗ tôi thì trời lạnh dễ đoán, còn nơi các bạn thì thời tiết có thể nóng lạnh khó lường hơn nhiều. Tôi thực sự nể phục các bạn.”',
+        'Xì ke bắc âu do MAX cung cấp để hướng dẫn tập thở bằng âm thanh và theo dõi lịch sử trên thiết bị. Đây là ứng dụng độc lập, không phải ứng dụng chính thức của Wim Hof và không tuyên bố được ông bảo trợ.',
         style: serif(25, weight: FontWeight.w500).copyWith(height: 1.34),
       ),
       const SizedBox(height: 22),
       Text(
-        '— Wim Hof không nói vậy',
+        'Hỗ trợ: vqthanh1412489@gmail.com',
         style: serif(19, italic: true, color: AppColors.muted),
         textAlign: TextAlign.right,
       ),

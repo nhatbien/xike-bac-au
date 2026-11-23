@@ -71,6 +71,9 @@ class _BreathingViewState extends State<BreathingView> {
       child: Scaffold(
         body: AppBackground(
           child: SafeArea(
+            left: false,
+            right: false,
+            bottom: false,
             child: LayoutBuilder(
               builder: (context, constraints) {
                 final width = min(640.0, constraints.maxWidth);

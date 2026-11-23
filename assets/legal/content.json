@@ -1,0 +1,214 @@
+{
+  "updated": "23/11/2026",
+  "owner": "MAX",
+  "email": "vqthanh1412489@gmail.com",
+  "pages": {
+    "privacy": {
+      "title": "Chính sách quyền riêng tư",
+      "sections": [
+        {
+          "title": "Đơn vị chịu trách nhiệm",
+          "paragraphs": [
+            "Xì ke bắc âu do cá nhân MAX cung cấp. Liên hệ về quyền riêng tư và hỗ trợ: vqthanh1412489@gmail.com. Chính sách này mô tả phiên bản ứng dụng chạy offline, không có tài khoản người dùng."
+          ]
+        },
+        {
+          "title": "Dữ liệu được xử lý trên thiết bị",
+          "paragraphs": [
+            "Ứng dụng lưu cài đặt buổi thở, ngày giờ và kết quả buổi đã hoàn thành, thời lượng các lần nín thở, dấu hiệu buổi đang chạy và xác nhận đã đọc cảnh báo an toàn. Dữ liệu phục vụ điều khiển bài tập, hiển thị lịch sử và thống kê trên máy.",
+            "Nhật ký kỹ thuật lưu tối đa 300 sự kiện gần nhất, gồm thời điểm mở app, thao tác tập, cấu hình và lỗi. Khi mở Nhật ký, app đọc tên/phiên bản ứng dụng, hãng và mẫu thiết bị, hệ điều hành, trạng thái âm thanh, quyền thông báo và dung lượng dữ liệu/cache để hỗ trợ kiểm tra lỗi. Các thông tin này được xử lý trên máy."
+          ]
+        },
+        {
+          "title": "Truyền và chia sẻ dữ liệu",
+          "paragraphs": [
+            "App không có máy chủ tài khoản, không tích hợp quảng cáo hay SDK phân tích hành vi, không tự gửi lịch sử tập hoặc nhật ký tới MAX và không bán dữ liệu. Không yêu cầu tên, email, vị trí, danh bạ, camera hoặc micro để tập.",
+            "Khi bạn chủ động chọn Gửi nhật ký và chọn nơi nhận trong bảng chia sẻ của hệ điều hành, nội dung có thể được chuyển cho ứng dụng hoặc người nhận do bạn chọn. Nhật ký có thể gồm thông tin thiết bị, cấu hình và số liệu tập; hãy kiểm tra trước khi gửi. Bên nhận áp dụng chính sách riêng của họ.",
+            "Nếu bạn gửi email hỗ trợ, MAX nhận địa chỉ email và nội dung/tệp bạn tự gửi để xử lý yêu cầu. Email được xử lý qua Gmail theo chính sách của nhà cung cấp; không gửi thông tin sức khỏe nhạy cảm nếu không cần thiết."
+          ]
+        },
+        {
+          "title": "Quyền hệ điều hành",
+          "paragraphs": [
+            "Android có thể xin quyền thông báo để hiển thị điều khiển buổi thở. Dịch vụ phát âm thanh nền và giữ thiết bị hoạt động phục vụ phát bài tập khi khóa màn hình. Trên iOS, app sử dụng phát âm thanh nền và điều khiển Now Playing. App không ghi âm."
+          ]
+        },
+        {
+          "title": "Lưu giữ, xóa và sao lưu",
+          "paragraphs": [
+            "Lịch sử và cài đặt được lưu trong vùng dữ liệu riêng của app cho đến khi bạn xóa dữ liệu hoặc gỡ app; không có thời hạn tự hết cho lịch sử. Nhật ký tự loại sự kiện cũ khi vượt 300 mục. App giữ một tệp âm thanh cache để phát buổi tập.",
+            "Bạn có thể xóa từng buổi trong Các buổi đã tập và xóa lần nín gần nhất trên màn Nín thở vui. Để xóa toàn bộ dữ liệu trên Android: Cài đặt hệ thống → Ứng dụng → Xì ke bắc âu → Bộ nhớ → Xóa dữ liệu. Trên iOS, dùng Xóa ứng dụng (không phải Gỡ bỏ ứng dụng/Offload). Thao tác này không thể hoàn tác trong app.",
+            "Tùy cài đặt và cơ chế của thiết bị, hệ điều hành có thể sao lưu/khôi phục dữ liệu ứng dụng. MAX không vận hành dịch vụ sao lưu riêng. Hãy quản lý hoặc xóa bản sao lưu qua nhà cung cấp hệ điều hành. Xóa trong app không xóa bản sao bạn đã chia sẻ hoặc email đã gửi.",
+            "Email hỗ trợ được giữ trong thời gian xử lý yêu cầu và nhu cầu lưu hồ sơ liên quan; bạn có thể yêu cầu xóa qua email, trừ phần phải lưu theo nghĩa vụ pháp luật. Không có tài khoản hoặc dữ liệu lịch sử tập trên máy chủ MAX để xóa từ xa."
+          ]
+        },
+        {
+          "title": "Bảo vệ dữ liệu và lựa chọn của bạn",
+          "paragraphs": [
+            "Dữ liệu cục bộ được bảo vệ bằng cơ chế vùng riêng ứng dụng của hệ điều hành; app không cung cấp mã hóa riêng hoặc khóa truy cập riêng. Hãy bảo vệ thiết bị và cẩn trọng khi chia sẻ nhật ký. Bạn có thể từ chối quyền thông báo, không chia sẻ nhật ký và liên hệ để hỏi về dữ liệu bạn đã tự gửi."
+          ]
+        },
+        {
+          "title": "Trẻ em và thay đổi chính sách",
+          "paragraphs": [
+            "App không được thiết kế riêng cho trẻ em và không chủ động yêu cầu thông tin cá nhân của trẻ em. Người chưa thành niên cần người giám hộ xem xét mức độ phù hợp của bài tập.",
+            "Khi cách xử lý dữ liệu thay đổi, MAX cập nhật chính sách và ngày cập nhật; sẽ cung cấp thông báo hoặc xin chấp thuận khi pháp luật yêu cầu. Bản trong app tương ứng phiên bản đã cài; bản trên website có thể mới hơn."
+          ]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Điều khoản sử dụng",
+      "sections": [
+        {
+          "title": "Phạm vi sử dụng",
+          "paragraphs": [
+            "Xì ke bắc âu do MAX cung cấp để hướng dẫn bài thở bằng âm thanh, bấm giờ nín thở và xem lịch sử tập cục bộ. Liên hệ: vqthanh1412489@gmail.com. Hãy đọc các điều khoản và cảnh báo trước khi sử dụng; nếu không đồng ý, không tiếp tục sử dụng app."
+          ]
+        },
+        {
+          "title": "Tập ở nơi an toàn",
+          "paragraphs": [
+            "Chỉ tập khi đang ngồi hoặc nằm ở nơi khô ráo, an toàn. Không tập khi lái xe, vận hành máy móc, đang đứng, trong bồn tắm, dưới nước hoặc gần nước."
+          ]
+        },
+        {
+          "title": "Không cố vượt giới hạn",
+          "paragraphs": [
+            "Thở sâu và nín thở có thể gây chóng mặt hoặc mất ý thức. Không thi nín thở, không cố đạt kỷ lục và không cố theo hết thời gian của app. Có thể thở lại bình thường và dừng bất cứ lúc nào; dừng ngay nếu thấy khó chịu."
+          ]
+        },
+        {
+          "title": "Hỏi chuyên gia y tế khi cần",
+          "paragraphs": [
+            "Nếu đang mang thai, có bệnh nền, từng ngất hoặc không chắc bài tập phù hợp, hãy hỏi chuyên gia y tế trước khi tập. App không đánh giá tình trạng sức khỏe hay mức độ an toàn của bạn."
+          ]
+        },
+        {
+          "title": "Không thay thế chăm sóc y tế",
+          "paragraphs": [
+            "Ứng dụng chỉ hỗ trợ luyện tập và thư giãn thông thường. Không phải thiết bị y tế và không chẩn đoán, điều trị, chữa hoặc phòng ngừa bất kỳ bệnh lý nào. Hãy tham khảo chuyên gia y tế để được tư vấn, chẩn đoán hoặc điều trị. Không dùng app để xử lý tình huống cấp cứu."
+          ]
+        },
+        {
+          "title": "Trách nhiệm khi luyện tập",
+          "paragraphs": [
+            "Bạn tự lựa chọn mức tập phù hợp với khả năng và tư vấn chuyên môn của mình. Thời gian, kỷ lục, thống kê và huy hiệu chỉ là dữ liệu tham khảo; không phải chỉ số chẩn đoán, chứng nhận sức khỏe hoặc mục tiêu bắt buộc. Người chưa thành niên cần người giám hộ xem xét và giám sát việc sử dụng."
+          ]
+        },
+        {
+          "title": "Giấy phép và tài nguyên",
+          "paragraphs": [
+            "Bạn được sử dụng ứng dụng cho mục đích cá nhân, trong phạm vi pháp luật và điều kiện của cửa hàng phân phối. Không được phân phối lại trái phép tài nguyên, mạo danh chủ thể quyền hoặc sử dụng app để xâm phạm quyền của người khác.",
+            "Quyền đối với mã, ảnh, giọng đọc, âm thanh, font và thư viện thuộc các chủ thể tương ứng; giấy phép nguồn mở tiếp tục áp dụng cho phần liên quan. Việc cung cấp app không cấp thêm quyền tái sử dụng các tài nguyên đó. App không phải ứng dụng chính thức của Wim Hof và không tuyên bố được ông hoặc tổ chức của ông bảo trợ."
+          ]
+        },
+        {
+          "title": "Dữ liệu và hoạt động của ứng dụng",
+          "paragraphs": [
+            "Dữ liệu tập được lưu trên máy theo Chính sách quyền riêng tư. MAX không có dịch vụ đồng bộ hoặc khôi phục lịch sử từ máy chủ. Xóa dữ liệu, mất thiết bị hoặc sự cố có thể làm mất lịch sử. Khi liên hệ hỗ trợ, bạn quyết định có chia sẻ nhật ký hay không."
+          ]
+        },
+        {
+          "title": "Giới hạn và quyền theo luật",
+          "paragraphs": [
+            "MAX không cam kết ứng dụng luôn hoạt động liên tục, không có lỗi hoặc đạt kết quả sức khỏe cụ thể. Trong phạm vi pháp luật cho phép, trách nhiệm được giới hạn đối với thiệt hại gián tiếp phát sinh từ việc dùng app. Không nội dung nào loại trừ trách nhiệm không được phép loại trừ, hoặc hạn chế quyền bắt buộc của người tiêu dùng theo pháp luật áp dụng. Cảnh báo và việc xác nhận không phải sự từ bỏ quyền hợp pháp của bạn."
+          ]
+        },
+        {
+          "title": "Thay đổi và liên hệ",
+          "paragraphs": [
+            "MAX có thể sửa lỗi, cập nhật tính năng và điều khoản; ngày cập nhật được ghi trong tài liệu. Thay đổi cần thông báo hoặc chấp thuận theo luật sẽ được thực hiện theo yêu cầu tương ứng. Đối với thắc mắc, khiếu nại hoặc quyền liên quan đến nội dung, liên hệ vqthanh1412489@gmail.com."
+          ]
+        }
+      ]
+    },
+    "support": {
+      "title": "Hỗ trợ",
+      "sections": [
+        {
+          "title": "Liên hệ MAX",
+          "paragraphs": [
+            "Email: vqthanh1412489@gmail.com. Gửi tên app Xì ke bắc âu, phiên bản, mẫu thiết bị, hệ điều hành, các bước gặp lỗi và kết quả bạn mong đợi. Không có cam kết thời gian phản hồi cố định. Đây là kênh hỗ trợ kỹ thuật, không phải tư vấn y tế hoặc cấp cứu."
+          ]
+        },
+        {
+          "title": "Báo lỗi bằng nhật ký",
+          "paragraphs": [
+            "Từ trang chủ → Nhật ký → Gửi nhật ký, kiểm tra nội dung và chọn ứng dụng email/nơi nhận. Bảng chia sẻ không tự gửi dữ liệu. Có thể chép nội dung hoặc gửi ảnh màn hình nếu không mở được bảng chia sẻ. Nhật ký có thể chứa thông tin thiết bị, cài đặt và số liệu tập; chỉ gửi những gì bạn muốn chia sẻ."
+          ]
+        },
+        {
+          "title": "Không nghe được âm thanh hoặc bị gián đoạn",
+          "paragraphs": [
+            "Kiểm tra âm lượng đa phương tiện, đầu ra loa/tai nghe và trạng thái tạm dừng. Cuộc gọi hoặc ứng dụng âm thanh khác có thể làm gián đoạn bài tập. Nếu app bị hệ điều hành kết thúc, mở lại và chủ động bắt đầu buổi mới; buổi chưa hoàn thành không được ghi thành hoàn thành.",
+            "Trên Android, kiểm tra quyền thông báo và cài đặt pin/chạy nền nếu điều khiển khi khóa màn hình không hiện hoặc bị dừng. Không tập ở tình huống nguy hiểm để thử phát nền."
+          ]
+        },
+        {
+          "title": "Quản lý và xóa dữ liệu",
+          "paragraphs": [
+            "Xóa từng buổi tại Các buổi đã tập → chọn buổi → Xoá buổi này. Trên Nín thở vui có thể xóa lần vừa rồi.",
+            "Để xóa toàn bộ dữ liệu Android, dùng Cài đặt hệ thống → Ứng dụng → Xì ke bắc âu → Bộ nhớ → Xóa dữ liệu. Trên iOS, dùng Xóa ứng dụng; Offload vẫn giữ dữ liệu. Quản lý bản sao lưu của hệ điều hành riêng nếu có. MAX không có tài khoản hoặc lịch sử trên máy chủ để khôi phục hay xóa từ xa."
+          ]
+        },
+        {
+          "title": "Quyền riêng tư, nội dung và an toàn",
+          "paragraphs": [
+            "Để hỏi về quyền riêng tư, yêu cầu xóa email hỗ trợ hoặc phản ánh quyền sử dụng tài nguyên, liên hệ email trên và mô tả yêu cầu. Xem Chính sách quyền riêng tư và Điều khoản sử dụng để biết thêm."
+          ]
+        },
+        {
+          "title": "Tập ở nơi an toàn",
+          "paragraphs": [
+            "Chỉ tập khi đang ngồi hoặc nằm ở nơi khô ráo, an toàn. Không tập khi lái xe, vận hành máy móc, đang đứng, trong bồn tắm, dưới nước hoặc gần nước."
+          ]
+        },
+        {
+          "title": "Không cố vượt giới hạn",
+          "paragraphs": [
+            "Thở sâu và nín thở có thể gây chóng mặt hoặc mất ý thức. Không thi nín thở, không cố đạt kỷ lục và không cố theo hết thời gian của app. Có thể thở lại bình thường và dừng bất cứ lúc nào; dừng ngay nếu thấy khó chịu."
+          ]
+        },
+        {
+          "title": "Hỏi chuyên gia y tế khi cần",
+          "paragraphs": [
+            "Nếu đang mang thai, có bệnh nền, từng ngất hoặc không chắc bài tập phù hợp, hãy hỏi chuyên gia y tế trước khi tập. App không đánh giá tình trạng sức khỏe hay mức độ an toàn của bạn."
+          ]
+        },
+        {
+          "title": "Không thay thế chăm sóc y tế",
+          "paragraphs": [
+            "Ứng dụng chỉ hỗ trợ luyện tập và thư giãn thông thường. Không phải thiết bị y tế và không chẩn đoán, điều trị, chữa hoặc phòng ngừa bất kỳ bệnh lý nào. Hãy tham khảo chuyên gia y tế để được tư vấn, chẩn đoán hoặc điều trị. Không dùng app để xử lý tình huống cấp cứu."
+          ]
+        }
+      ]
+    }
+  },
+  "safety": [
+    {
+      "title": "Tập ở nơi an toàn",
+      "paragraphs": [
+        "Chỉ tập khi đang ngồi hoặc nằm ở nơi khô ráo, an toàn. Không tập khi lái xe, vận hành máy móc, đang đứng, trong bồn tắm, dưới nước hoặc gần nước."
+      ]
+    },
+    {
+      "title": "Không cố vượt giới hạn",
+      "paragraphs": [
+        "Thở sâu và nín thở có thể gây chóng mặt hoặc mất ý thức. Không thi nín thở, không cố đạt kỷ lục và không cố theo hết thời gian của app. Có thể thở lại bình thường và dừng bất cứ lúc nào; dừng ngay nếu thấy khó chịu."
+      ]
+    },
+    {
+      "title": "Hỏi chuyên gia y tế khi cần",
+      "paragraphs": [
+        "Nếu đang mang thai, có bệnh nền, từng ngất hoặc không chắc bài tập phù hợp, hãy hỏi chuyên gia y tế trước khi tập. App không đánh giá tình trạng sức khỏe hay mức độ an toàn của bạn."
+      ]
+    },
+    {
+      "title": "Không thay thế chăm sóc y tế",
+      "paragraphs": [
+        "Ứng dụng chỉ hỗ trợ luyện tập và thư giãn thông thường. Không phải thiết bị y tế và không chẩn đoán, điều trị, chữa hoặc phòng ngừa bất kỳ bệnh lý nào. Hãy tham khảo chuyên gia y tế để được tư vấn, chẩn đoán hoặc điều trị. Không dùng app để xử lý tình huống cấp cứu."
+      ]
+    }
+  ]
+}

@@ -8,7 +8,7 @@ Flutter native + GetX, không WebView: trang chủ, buổi thở, màn hoàn th�
 - WAV dùng PCM gốc, 22.050 Hz mono 16-bit, sample offsets và nhạc fade/lặp theo lịch; dựng trong isolate, bộ nhớ theo block. Không TTS hoặc nén mất dữ liệu.
 - Android foreground mediaPlayback service, media notification, audio focus, interruption và rút tai nghe; quyền thông báo chỉ được yêu cầu khi bắt đầu thở.
 - Stopwatch monotonic, hiển thị 0,1 giây, vượt 60 giây, kỷ lục, trung bình 7 ngày, số lần hôm nay và xoá lần gần nhất. Chạm nhầm dưới 1 giây không ghi, như UI gốc.
-- GetStorage lưu cài đặt, buổi hoàn thành, lần nín thở và 300 log gần nhất. StorageService chờ hàng đợi ghi trước khi xác nhận lưu marker/kết quả.
+- shared_preferences lưu cài đặt, buổi hoàn thành, lần nín thở và 300 log gần nhất. StorageService dùng SharedPreferencesWithCache, mã hóa dữ liệu thành JSON và chờ thao tác ghi của nền tảng hoàn tất trước khi xác nhận marker/kết quả. shared_preferences không bảo đảm dữ liệu đã bền vững trên đĩa ngay khi Future hoàn tất.
 - Thống kê ngày/tuần/tháng/năm/tất cả, lọc và điều hướng quá khứ, lịch thứ Hai/năm nhuận, chuỗi ngày, kỷ lục và năm loại huy hiệu với ngày đạt suy từ dữ liệu thật.
 - Share sheet nhật ký do người dùng chọn; không tự gửi ra ngoài.
 
@@ -53,6 +53,6 @@ Bằng chứng trong `artifacts/`: analyze.log, tests.log, integration.log, buil
 
 ## Thư viện
 
-Get, GetStorage, just_audio, audio_service, audio_session, path_provider, share_plus, device_info_plus, package_info_plus, permission_handler, flutter_svg. Phiên bản cụ thể được khoá trong pubspec.lock. Giải thích vai trò và mapping trong SOURCE_ANALYSIS.md.
+Get, shared_preferences, just_audio, audio_service, audio_session, path_provider, share_plus, device_info_plus, package_info_plus, permission_handler, flutter_svg. Phiên bản cụ thể được khoá trong pubspec.lock. Giải thích vai trò và mapping trong SOURCE_ANALYSIS.md.
 
 APK kiểm tra: `build/app/outputs/flutter-apk/app-release.apk`. SHA-256 được ghi ở `artifacts/APK.sha256`. Sau kiểm tra share sheet, app trên máy ảo QA được đưa về trạng thái rỗng/cấu hình mặc định; dữ liệu thử chỉ còn trong bằng chứng kiểm thử.

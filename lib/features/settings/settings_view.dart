@@ -6,6 +6,7 @@ import '../../app/widgets/app_widgets.dart';
 import '../../core/utils/duration_calculator.dart';
 import '../../core/utils/time_formatter.dart';
 import 'settings_controller.dart';
+import 'backup_settings_card.dart';
 
 class SettingsView extends GetView<SettingsController> {
   const SettingsView({super.key});
@@ -120,8 +121,33 @@ class SettingsView extends GetView<SettingsController> {
         ),
         DashedBorderCard(
           child: Text(
-            'Mỗi hiệp: thở 40 nhịp sâu theo giọng ông Wim (mỗi nhịp 3,26 giây: hít 1,7, thở 1,56, đúng nhịp clip mẫu) → thở ra hết rồi NÍN theo số giây trên → hít đầy và GIỮ hơi phục hồi → thả ra, sang hiệp mới.\nBấm Bắt đầu là app tự dẫn tới hết, không cần chạm gì.\nMới tập thì nín 1 phút, giữ 15 giây; quen dần thì nâng mức nín.\nĐừng tập khi đang lái xe, đang ở dưới nước hay đang đứng: ngồi hoặc nằm chỗ an toàn.',
+            'Mỗi hiệp: thở 40 nhịp sâu theo giọng ông Wim (mỗi nhịp 3,26 giây: hít 1,7, thở 1,56, đúng nhịp clip mẫu) → thở ra hết rồi NÍN theo số giây trên → hít đầy và GIỮ hơi phục hồi → thả ra, sang hiệp mới.\nBấm Bắt đầu là app tự dẫn tới hết, không cần chạm gì.\nThời gian chỉ là cài đặt bài tập, không phải mục tiêu bắt buộc. Thở lại bình thường và dừng ngay khi cần; không cố nín theo đồng hồ.\nĐừng tập khi đang lái xe, đang ở dưới nước hay đang đứng: ngồi hoặc nằm chỗ an toàn.',
             style: body(14.5, color: AppColors.muted),
+          ),
+        ),
+        const BackupSettingsCard(),
+        DashedBorderCard(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const AppSectionTitle('Thông tin & hỗ trợ'),
+              for (final link in const [
+                ('/privacy', 'Chính sách quyền riêng tư'),
+                ('/terms', 'Điều khoản sử dụng'),
+                ('/support', 'Hỗ trợ'),
+                ('/safety', 'Xem lại cảnh báo an toàn'),
+                ('/licenses', 'Giấy phép nguồn mở'),
+              ])
+                Material(
+                  type: MaterialType.transparency,
+                  child: ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: Text(link.$2, style: body(16)),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: () => Get.toNamed(link.$1),
+                  ),
+                ),
+            ],
           ),
         ),
       ],

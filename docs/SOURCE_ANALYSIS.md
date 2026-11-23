@@ -32,9 +32,9 @@ Player âm thanh là nguồn vị trí của engine; timer chỉ yêu cầu vẽ
 | MAN.caidat | SettingsController, SettingsRepository, SettingSliderCard |
 | MAN.thongke | StatisticsController/Repository, TrainingCalendar, AchievementBadge |
 | MAN.nhatky, chiaSe | LoggingService, DeviceInfo, Share sheet |
-| window.App persistence | GetStorage, model JSON, ghi ngay khi thay đổi |
+| window.App persistence | shared_preferences, model JSON, ghi ngay khi thay đổi |
 
 ## Thư viện
-Get: DI/state/navigation; GetStorage: lưu cục bộ; just_audio: WAV playback; audio_service: foreground service/media controls; audio_session: focus/interruption; path_provider: cache; flutter_svg: icon SVG gốc; share_plus: share sheet; device_info_plus/package_info_plus: thông tin thật; permission_handler: kiểm tra/xin quyền thông báo Android. Không WebView/backend.
+Get: DI/state/navigation; shared_preferences: lưu cục bộ; just_audio: WAV playback; audio_service: foreground service/media controls; audio_session: focus/interruption; path_provider: cache; flutter_svg: icon SVG gốc; share_plus: share sheet; device_info_plus/package_info_plus: thông tin thật; permission_handler: kiểm tra/xin quyền thông báo Android. Không WebView/backend.
 
 Lịch âm thanh cộng dồn số mẫu từng đoạn như Tron.lap; phần lẻ dưới một mẫu được xử lý ở từng đoạn, không cộng ms rồi đổi một lần. WAV dùng số mẫu thực cho độ dài RIFF. Font TTF giữ cả GSUB/GPOS sau khi ghép subset, gồm kerning và positioning.

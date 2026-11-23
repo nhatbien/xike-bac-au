@@ -89,6 +89,16 @@ class TrainingAudioHandler extends BaseAudioHandler with SeekHandler {
   ) async {
     ready = false;
     final cache = await getTemporaryDirectory();
+    // System media controls need a real file URI, not a Flutter asset path.
+    final artwork = File('${cache.path}/xike-now-playing.png');
+    final artworkData = await rootBundle.load('assets/now_playing.png');
+    await artwork.writeAsBytes(
+      artworkData.buffer.asUint8List(
+        artworkData.offsetInBytes,
+        artworkData.lengthInBytes,
+      ),
+      flush: true,
+    );
     final path =
         '${cache.path}/xike-v2-${settings.rounds}-${settings.holdSeconds}-${settings.recoverySeconds}.wav';
     if (!File(path).existsSync()) {
@@ -110,6 +120,7 @@ class TrainingAudioHandler extends BaseAudioHandler with SeekHandler {
         id: path,
         title: 'Thở cùng ông Wim',
         album: 'Xì ke bắc âu',
+        artUri: artwork.uri,
         duration: null,
       ),
     );

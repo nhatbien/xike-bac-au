@@ -197,7 +197,7 @@ class StatisticsView extends GetView<StatisticsController> {
         Padding(
           padding: const EdgeInsets.all(14),
           child: Text(
-            '“Lúc muốn bỏ cuộc, thở thêm một nhịp nữa rồi hẵng tính.”',
+            'Tập vừa sức, dừng khi cần. Thời gian ghi nhận không phải mục tiêu bắt buộc.',
             style: serif(16.5, color: AppColors.muted, italic: true),
             textAlign: TextAlign.center,
           ),

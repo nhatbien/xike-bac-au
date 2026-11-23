@@ -49,3 +49,9 @@ app.*.map.json
 
 .tools-venv/
 artifacts/
+
+# Private signing material
+android/key.properties
+*.jks
+*.keystore
+*.p12

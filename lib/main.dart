@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
@@ -8,9 +7,20 @@ import 'app/bindings/initial_binding.dart';
 import 'app/routes/app_pages.dart';
 import 'app/theme/app_theme.dart';
 import 'core/services/logging_service.dart';
+import 'core/services/storage_service.dart';
+import 'features/invite/invite_gate.dart';
+import 'features/safety/safety_view.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  LicenseRegistry.addLicense(() async* {
+    for (final font in ['Lora', 'BeVietnamPro']) {
+      final license = await rootBundle.loadString(
+        'assets/web/fonts/OFL-$font.txt',
+      );
+      yield LicenseEntryWithLineBreaks([font], license);
+    }
+  });
   await initializeDependencies();
   PlatformDispatcher.instance.onError = (error, stack) {
     Get.find<LoggingService>().log('Runtime: $error\n$stack');
@@ -36,7 +46,7 @@ class XikeApp extends StatelessWidget {
     debugShowCheckedModeBanner: false,
     theme: appTheme(),
     themeMode: ThemeMode.light,
-    initialRoute: '/',
+    initialRoute: SafetyAcknowledgement.accepted ? '/' : '/safety?next=%2F',
     getPages: AppPages.pages,
     defaultTransition: Transition.fadeIn,
     transitionDuration: const Duration(milliseconds: 220),
@@ -53,7 +63,7 @@ class XikeApp extends StatelessWidget {
           textScaler: MediaQuery.textScalerOf(context)
               .clamp(maxScaleFactor: 1.5),
         ),
-        child: child!,
+        child: InviteGate(storage: Get.find<StorageService>(), child: child!),
       ),
     ),
   );
