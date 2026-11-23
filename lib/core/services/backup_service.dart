@@ -16,6 +16,7 @@ class BackupService extends GetxService {
     settings: settings.settings.value,
     sessions: history.sessions,
     attempts: history.attempts,
+    customBadges: history.customBadges,
   );
 
   Future<void> restore(TrainingBackup backup) async {
@@ -23,10 +24,12 @@ class BackupService extends GetxService {
       settings: backup.settings.toJson(),
       sessions: backup.sessions.map((s) => s.toJson()).toList(),
       attempts: backup.attempts.map((a) => a.toJson()).toList(),
+      customBadges: backup.customBadges.map((b) => b.toJson()).toList(),
     );
     // Publish only after the full snapshot has been saved successfully.
     settings.settings.value = backup.settings;
     history.sessions.assignAll(backup.sessions);
     history.attempts.assignAll(backup.attempts);
+    history.customBadges.assignAll(backup.customBadges);
   }
 }

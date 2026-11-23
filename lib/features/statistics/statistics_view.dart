@@ -9,6 +9,7 @@ import '../../core/utils/time_formatter.dart';
 import '../../data/repositories/statistics_repository.dart';
 import '../sessions/session_detail_view.dart';
 import 'statistics_controller.dart';
+import 'add_badge_dialog.dart';
 
 class StatisticsView extends GetView<StatisticsController> {
   const StatisticsView({super.key});
@@ -161,17 +162,89 @@ class StatisticsView extends GetView<StatisticsController> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               AppSectionTitle(
-                'Huy hiệu (${achievements.where((a) => a.unlocked).length} đã đạt)',
+                'Huy hiệu (${achievements.where((a) => a.unlocked).length + controller.repository.customBadges.length} đã đạt)',
               ),
               Text(
-                'sticker màu là đã có, viền chấm là sắp tới',
+                '${controller.badgePoints} điểm huy hiệu · mỗi huy hiệu tập luyện đã đạt nhận 10 điểm',
                 style: body(13.5, color: AppColors.muted),
+              ),
+              const SizedBox(height: 8),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: OutlinedButton.icon(
+                  icon: const Icon(Icons.add),
+                  label: const Text('Thêm huy hiệu'),
+                  onPressed: () => showDialog<void>(
+                    context: context,
+                    barrierDismissible: false,
+                    builder: (_) =>
+                        AddBadgeDialog(repository: controller.repository),
+                  ),
+                ),
               ),
               const SizedBox(height: 8),
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
                 children: achievements.map((a) => AchievementBadge(a)).toList(),
+              ),
+              ...controller.repository.customBadges.map(
+                (badge) => ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: const Icon(
+                    Icons.workspace_premium,
+                    color: AppColors.mustard,
+                  ),
+                  title: Text(
+                    badge.name,
+                    style: body(14.5, weight: FontWeight.w600),
+                  ),
+                  subtitle: Text(
+                    '+${badge.points} điểm · tự thêm',
+                    style: body(13, color: AppColors.muted),
+                  ),
+                  trailing: IconButton(
+                    tooltip: 'Xóa huy hiệu ${badge.name}',
+                    icon: const Icon(Icons.close),
+                    onPressed: () async {
+                      final remove = await showDialog<bool>(
+                        context: context,
+                        builder: (dialogContext) => AlertDialog(
+                          title: const Text('Xóa huy hiệu?'),
+                          content: Text(
+                            'Xóa “${badge.name}” sẽ trừ ${badge.points} điểm huy hiệu.',
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(dialogContext, false),
+                              child: const Text('Hủy'),
+                            ),
+                            TextButton(
+                              onPressed: () =>
+                                  Navigator.pop(dialogContext, true),
+                              child: const Text('Xóa'),
+                            ),
+                          ],
+                        ),
+                      );
+                      if (remove != true) return;
+                      try {
+                        await controller.repository.deleteBadge(badge.id);
+                      } catch (_) {
+                        if (context.mounted) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text(
+                                'Chưa xóa được huy hiệu. Bạn thử lại nhé.',
+                              ),
+                            ),
+                          );
+                        }
+                      }
+                    },
+                  ),
+                ),
               ),
             ],
           ),

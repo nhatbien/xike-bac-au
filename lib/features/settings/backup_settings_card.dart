@@ -141,9 +141,9 @@ class _BackupSettingsCardState extends State<BackupSettingsCard> {
           content: SingleChildScrollView(
             child: Text(
               'File tạo ngày ${date.day}/${date.month}/${date.year}.\n'
-              'Trong file: ${backup.sessions.length} buổi thở, ${backup.attempts.length} lần nín thở.\n\n'
-              'Sẽ thay thế cài đặt và toàn bộ lịch sử hiện tại '
-              '(${current.sessions.length} buổi thở, ${current.attempts.length} lần nín thở). '
+              'Trong file: ${backup.sessions.length} buổi thở, ${backup.attempts.length} lần nín thở, ${backup.customBadges.length} huy hiệu tự thêm.\n\n'
+              'Sẽ thay thế cài đặt, huy hiệu tự thêm và toàn bộ lịch sử hiện tại '
+              '(${current.sessions.length} buổi thở, ${current.attempts.length} lần nín thở, ${current.customBadges.length} huy hiệu tự thêm). '
               'Hãy xuất dữ liệu hiện tại trước nếu bạn muốn giữ lại.',
             ),
           ),
@@ -186,7 +186,7 @@ class _BackupSettingsCardState extends State<BackupSettingsCard> {
         await progress;
       }
       _setMessage(
-        'Đã nhập ${backup.sessions.length} buổi thở và ${backup.attempts.length} lần nín thở. Cài đặt đã được khôi phục.',
+        'Đã nhập ${backup.sessions.length} buổi thở và ${backup.attempts.length} lần nín thở, ${backup.customBadges.length} huy hiệu tự thêm. Cài đặt đã được khôi phục.',
       );
     } on FormatException catch (error) {
       _setMessage('Không nhập được dữ liệu. ${error.message}', error: true);

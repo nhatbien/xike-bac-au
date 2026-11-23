@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 import 'package:xike_bac_au/app/theme/app_theme.dart';
 import 'package:xike_bac_au/app/widgets/app_widgets.dart';
 import 'package:xike_bac_au/app/widgets/training_calendar.dart';
+import 'package:xike_bac_au/data/models/breathing_session.dart';
+import 'package:xike_bac_au/data/models/breathing_settings.dart';
 import 'package:xike_bac_au/core/services/storage_service.dart';
 import 'package:xike_bac_au/core/services/logging_service.dart';
 import 'package:xike_bac_au/data/repositories/settings_repository.dart';
@@ -139,6 +141,53 @@ void main() {
       expect(t.takeException(), isNull);
     },
   );
+  testWidgets('Calendar swipes across years and keeps session data per month', (
+    t,
+  ) async {
+    t.view.physicalSize = const Size(320, 740);
+    t.view.devicePixelRatio = 1;
+    addTearDown(t.view.resetPhysicalSize);
+    addTearDown(t.view.resetDevicePixelRatio);
+    final history = [
+      BreathingSession(
+        id: 'january',
+        startedAt: DateTime(2025, 1, 15),
+        completedAt: DateTime(2025, 1, 15, 0, 10),
+        settings: const BreathingSettings(),
+        completedRounds: 3,
+        totalDurationSeconds: 600,
+        totalHoldSeconds: 270,
+      ),
+    ];
+    Widget calendar(DateTime month) => AppPage(
+      children: [TrainingCalendar(month: month, sessions: history)],
+    );
+    await mount(t, calendar(DateTime(2024, 12)));
+    expect(find.text('Lịch tập tháng 12/2024'), findsOneWidget);
+    expect(find.text('10′'), findsNothing);
+
+    await t.drag(find.byType(PageView), const Offset(-250, 0));
+    await t.pumpAndSettle();
+    expect(find.text('Lịch tập tháng 1/2025'), findsOneWidget);
+    expect(find.text('10′'), findsOneWidget);
+
+    await t.drag(find.byType(PageView), const Offset(250, 0));
+    await t.pumpAndSettle();
+    expect(find.text('Lịch tập tháng 12/2024'), findsOneWidget);
+    expect(find.text('10′'), findsNothing);
+
+    await t.tap(find.byTooltip('Tháng trước'));
+    await t.pumpAndSettle();
+    expect(find.text('Lịch tập tháng 11/2024'), findsOneWidget);
+    await t.tap(find.byTooltip('Tháng sau'));
+    await t.pumpAndSettle();
+    expect(find.text('Lịch tập tháng 12/2024'), findsOneWidget);
+
+    await mount(t, calendar(DateTime(2024, 2)));
+    expect(find.text('Lịch tập tháng 2/2024'), findsOneWidget);
+    expect(find.text('29'), findsOneWidget);
+    expect(t.takeException(), isNull);
+  });
   testWidgets('Navigation pushes and header returns to previous screen', (
     t,
   ) async {

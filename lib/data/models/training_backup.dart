@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'breath_hold_attempt.dart';
+import 'custom_badge.dart';
 import 'breathing_session.dart';
 import 'breathing_settings.dart';
 
@@ -9,6 +10,7 @@ class TrainingBackup {
   static const version = 1;
   static const maxBytes = 20 * 1024 * 1024;
 
+  final List<CustomBadge> customBadges;
   final DateTime exportedAt;
   final BreathingSettings settings;
   final List<BreathingSession> sessions;
@@ -19,8 +21,10 @@ class TrainingBackup {
     required this.settings,
     required Iterable<BreathingSession> sessions,
     required Iterable<BreathHoldAttempt> attempts,
+    Iterable<CustomBadge> customBadges = const [],
   }) : sessions = List.unmodifiable(sessions),
-       attempts = List.unmodifiable(attempts);
+       attempts = List.unmodifiable(attempts),
+       customBadges = List.unmodifiable(customBadges);
 
   String encode() => const JsonEncoder.withIndent('  ').convert({
     'format': format,
@@ -30,6 +34,7 @@ class TrainingBackup {
       'settings': settings.toJson(),
       'sessions': sessions.map((s) => s.toJson()).toList(),
       'attempts': attempts.map((a) => a.toJson()).toList(),
+      'customBadges': customBadges.map((b) => b.toJson()).toList(),
     },
   });
 
@@ -80,6 +85,17 @@ class TrainingBackup {
         }
         attempts.add(attempt);
       }
+      final badges = <CustomBadge>[];
+      final badgeIds = <String>{};
+      final badgeNames = <String>{};
+      for (final value in (data['customBadges'] ?? []) as List) {
+        final badge = CustomBadge.fromJson(value as Map<String, dynamic>);
+        if (!badgeIds.add(badge.id) ||
+            !badgeNames.add(badge.name.toLowerCase())) {
+          throw const FormatException('File có huy hiệu trùng lặp.');
+        }
+        badges.add(badge);
+      }
       sessions.sort((a, b) => b.startedAt.compareTo(a.startedAt));
       attempts.sort((a, b) => b.createdAt.compareTo(a.createdAt));
       return TrainingBackup(
@@ -87,6 +103,7 @@ class TrainingBackup {
         settings: settings,
         sessions: sessions,
         attempts: attempts,
+        customBadges: badges,
       );
     } on FormatException {
       rethrow;

@@ -9,7 +9,12 @@ class StorageService extends GetxService {
 
   static const _prefix = 'xike.v1.';
   static const _trainingKey = '${_prefix}trainingData';
-  static const _trainingKeys = {'settings', 'sessions', 'attempts'};
+  static const _trainingKeys = {
+    'settings',
+    'sessions',
+    'attempts',
+    'customBadges',
+  };
 
   Map<String, dynamic>? _trainingData() {
     final value = preferences.getString(_trainingKey);
@@ -50,12 +55,13 @@ class StorageService extends GetxService {
     await preferences.remove('$_prefix$key');
   }
 
-  /// Import all three collections with one platform write, so a partial
+  /// Import all training collections with one platform write, so a partial
   /// restore cannot mix new settings with old history. Other device data stays.
   Future<void> replaceTrainingData({
     required Map<String, dynamic> settings,
     required List<Map<String, dynamic>> sessions,
     required List<Map<String, dynamic>> attempts,
+    List<Map<String, dynamic>> customBadges = const [],
   }) async {
     final previous = preferences.getString(_trainingKey);
     try {
@@ -65,6 +71,7 @@ class StorageService extends GetxService {
           'settings': settings,
           'sessions': sessions,
           'attempts': attempts,
+          'customBadges': customBadges,
         }),
       );
     } catch (_) {
