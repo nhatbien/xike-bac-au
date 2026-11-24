@@ -184,12 +184,6 @@ class AboutView extends StatelessWidget {
         'Xì ke bắc âu do MAX cung cấp để hướng dẫn tập thở bằng âm thanh và theo dõi lịch sử trên thiết bị. Đây là ứng dụng độc lập, không phải ứng dụng chính thức của Wim Hof và không tuyên bố được ông bảo trợ.',
         style: serif(25, weight: FontWeight.w500).copyWith(height: 1.34),
       ),
-      const SizedBox(height: 22),
-      Text(
-        'Hỗ trợ: vqthanh1412489@gmail.com',
-        style: serif(19, italic: true, color: AppColors.muted),
-        textAlign: TextAlign.right,
-      ),
     ],
   );
 }
