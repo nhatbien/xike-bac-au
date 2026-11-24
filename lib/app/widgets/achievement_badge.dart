@@ -7,7 +7,8 @@ import 'app_widgets.dart';
 
 class AchievementBadge extends StatelessWidget {
   final Achievement achievement;
-  const AchievementBadge(this.achievement, {super.key});
+  final VoidCallback? onLongPress;
+  const AchievementBadge(this.achievement, {super.key, this.onLongPress});
   @override
   Widget build(BuildContext context) {
     final a = achievement;
@@ -19,19 +20,46 @@ class AchievementBadge extends StatelessWidget {
       'hour' => 'còn ${(remaining / 3600).ceil()} giờ tập nữa',
       _ => 'còn $remaining hiệp nữa',
     };
+    return BadgeSticker(
+      onLongPress: onLongPress,
+      name: a.name,
+      subtitle: a.unlocked
+          ? 'đạt ${a.progress.clamp(0, a.target)} / ${a.target}'
+          : progress,
+      unlocked: a.unlocked,
+    );
+  }
+}
+
+class BadgeSticker extends StatelessWidget {
+  final String name, subtitle;
+  final bool unlocked;
+  final VoidCallback? onLongPress;
+
+  const BadgeSticker({
+    super.key,
+    required this.name,
+    required this.subtitle,
+    required this.unlocked,
+    this.onLongPress,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: const BoxConstraints(maxWidth: 240),
       child: DashedBorderCard(
+        onLongPress: onLongPress,
         margin: EdgeInsets.zero,
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-        color: a.unlocked ? AppColors.yellow : AppColors.paper,
+        color: unlocked ? AppColors.yellow : AppColors.paper,
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
             AppIcon(
               'star',
               size: 20,
-              color: a.unlocked ? AppColors.mustard : AppColors.border,
+              color: unlocked ? AppColors.mustard : AppColors.border,
             ),
             const SizedBox(width: 8),
             Flexible(
@@ -39,17 +67,14 @@ class AchievementBadge extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    a.name,
+                    name,
                     style: body(
                       14.5,
-                      color: a.unlocked ? AppColors.ink : AppColors.muted,
+                      color: unlocked ? AppColors.ink : AppColors.muted,
                       weight: FontWeight.w600,
                     ),
                   ),
-                  Text(
-                    a.unlocked ? 'đạt ${a.progress} / ${a.target}' : progress,
-                    style: body(12, color: AppColors.muted),
-                  ),
+                  Text(subtitle, style: body(12, color: AppColors.muted)),
                 ],
               ),
             ),

@@ -38,17 +38,15 @@ class SessionRepository extends GetxService {
     sessions.sort((a, b) => b.startedAt.compareTo(a.startedAt));
     attempts.sort((a, b) => b.createdAt.compareTo(a.createdAt));
   }
-  Future<void> addBadge(String name, int points) async {
-    if (customBadges.any(
-      (b) => b.name.toLowerCase() == name.trim().toLowerCase(),
-    )) {
-      throw const FormatException('Bạn đã có huy hiệu mang tên này.');
+  Future<void> addBadge(BadgeMetric metric, int target) async {
+    if (customBadges.any((b) => b.metric == metric && b.target == target)) {
+      throw const FormatException('Bạn đã có huy hiệu với mục tiêu này.');
     }
     final now = DateTime.now();
     final badge = CustomBadge(
       id: 'custom-${now.microsecondsSinceEpoch}',
-      name: name,
-      points: points,
+      metric: metric,
+      target: target,
       createdAt: now,
     );
     final updated = [badge, ...customBadges];

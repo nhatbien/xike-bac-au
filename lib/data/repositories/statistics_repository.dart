@@ -84,25 +84,27 @@ class StatisticsRepository {
       ('hour', '1 giờ tập', 3600),
       ('rounds', '50 hiệp', 50),
     ];
-    final result = <Achievement>[];
-    for (final spec in specs) {
-      DateTime? reached;
-      int progress = 0;
-      final prefix = <BreathingSession>[];
-      for (final s in sessions) {
-        prefix.add(s);
-        final r = StatisticsRepository(prefix);
-        progress = switch (spec.$1) {
-          'first' => prefix.length,
-          'hold' => r.record,
-          'streak' => r.longestStreak,
-          'hour' => r.totalSeconds,
-          _ => r.rounds,
-        };
-        if (progress >= spec.$3 && reached == null) reached = s.completedAt;
-      }
-      result.add(Achievement(spec.$1, spec.$2, progress, spec.$3, reached));
+    return specs
+        .map((spec) => achievementFor(spec.$1, spec.$2, spec.$3))
+        .toList();
+  }
+
+  Achievement achievementFor(String metric, String name, int target) {
+    DateTime? reached;
+    int progress = 0;
+    final prefix = <BreathingSession>[];
+    for (final s in sessions) {
+      prefix.add(s);
+      final r = StatisticsRepository(prefix);
+      progress = switch (metric) {
+        'first' => prefix.length,
+        'hold' => r.record,
+        'streak' => r.longestStreak,
+        'hour' => r.totalSeconds,
+        _ => r.rounds,
+      };
+      if (progress >= target && reached == null) reached = s.completedAt;
     }
-    return result;
+    return Achievement(metric, name, progress, target, reached);
   }
 }

@@ -120,7 +120,7 @@ class DashedBorderCard extends StatelessWidget {
   final Color color, borderColor;
   final EdgeInsets padding, margin;
   final double radius;
-  final VoidCallback? onTap;
+  final VoidCallback? onTap, onLongPress;
   const DashedBorderCard({
     super.key,
     required this.child,
@@ -130,6 +130,7 @@ class DashedBorderCard extends StatelessWidget {
     this.margin = const EdgeInsets.symmetric(vertical: 7),
     this.radius = 18,
     this.onTap,
+    this.onLongPress,
   });
   @override
   Widget build(BuildContext context) => Padding(
@@ -156,6 +157,7 @@ class DashedBorderCard extends StatelessWidget {
           color: Colors.transparent,
           child: InkWell(
             onTap: onTap,
+            onLongPress: onLongPress,
             borderRadius: BorderRadius.circular(radius),
             child: Padding(
               padding: padding + const EdgeInsets.all(2),

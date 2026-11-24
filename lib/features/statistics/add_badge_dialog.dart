@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../data/repositories/session_repository.dart';
+import '../../data/models/custom_badge.dart';
+import '../../app/widgets/achievement_badge.dart';
+import '../../data/repositories/statistics_repository.dart';
 
 class AddBadgeDialog extends StatefulWidget {
   final SessionRepository repository;
@@ -13,15 +16,14 @@ class AddBadgeDialog extends StatefulWidget {
 
 class _AddBadgeDialogState extends State<AddBadgeDialog> {
   final _form = GlobalKey<FormState>();
-  final _name = TextEditingController();
-  final _points = TextEditingController(text: '10');
+  BadgeMetric _metric = BadgeMetric.hold;
+  final _target = TextEditingController(text: '60');
   bool _saving = false;
   String? _error;
 
   @override
   void dispose() {
-    _name.dispose();
-    _points.dispose();
+    _target.dispose();
     super.dispose();
   }
 
@@ -32,7 +34,10 @@ class _AddBadgeDialogState extends State<AddBadgeDialog> {
       _error = null;
     });
     try {
-      await widget.repository.addBadge(_name.text, int.parse(_points.text));
+      await widget.repository.addBadge(
+        _metric,
+        _metric.toStoredTarget(int.parse(_target.text)),
+      );
       if (mounted) Navigator.of(context).pop();
     } catch (error) {
       if (mounted) {
@@ -58,36 +63,59 @@ class _AddBadgeDialogState extends State<AddBadgeDialog> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextFormField(
-                controller: _name,
-                autofocus: true,
-                enabled: !_saving,
-                maxLength: 60,
-                textCapitalization: TextCapitalization.sentences,
-                decoration: const InputDecoration(labelText: 'Tên huy hiệu'),
-                validator: (value) => value == null || value.trim().isEmpty
-                    ? 'Nhập tên huy hiệu.'
-                    : null,
+              DropdownButtonFormField<BadgeMetric>(
+                initialValue: _metric,
+                isExpanded: true,
+                decoration: const InputDecoration(labelText: 'Loại huy hiệu'),
+                items: BadgeMetric.values
+                    .map(
+                      (metric) => DropdownMenuItem(
+                        value: metric,
+                        child: Text(metric.label),
+                      ),
+                    )
+                    .toList(),
+                onChanged: _saving
+                    ? null
+                    : (metric) {
+                        if (metric == null) return;
+                        setState(() {
+                          _metric = metric;
+                          _target.text = '${metric.defaultTarget}';
+                        });
+                      },
               ),
               const SizedBox(height: 12),
               TextFormField(
-                controller: _points,
+                controller: _target,
                 enabled: !_saving,
                 keyboardType: TextInputType.number,
                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                decoration: const InputDecoration(
-                  labelText: 'Điểm thưởng (1–9999)',
+                decoration: InputDecoration(
+                  labelText: 'Mục tiêu (${_metric.unit})',
                 ),
                 validator: (value) {
-                  final points = int.tryParse(value ?? '');
-                  return points == null || points < 1 || points > 9999
-                      ? 'Nhập số điểm từ 1 đến 9999.'
+                  final target = int.tryParse(value ?? '');
+                  return target == null || target < 1 || target > 9999
+                      ? 'Nhập mục tiêu từ 1 đến 9999.'
                       : null;
                 },
+                onChanged: (_) => setState(() {}),
                 onFieldSubmitted: (_) => _save(),
               ),
+              const SizedBox(height: 16),
+              if (int.tryParse(_target.text) case final int value
+                  when value > 0 && value <= 9999)
+                AchievementBadge(
+                  StatisticsRepository(widget.repository.sessions)
+                      .achievementFor(
+                        _metric.key,
+                        _metric.title(_metric.toStoredTarget(value)),
+                        _metric.toStoredTarget(value),
+                      ),
+                ),
               const SizedBox(height: 12),
-              const Text('Điểm thưởng được cộng vào tổng điểm huy hiệu.'),
+              const Text('Tiến độ tự cập nhật theo lịch sử tập của bạn.'),
               if (_error != null) ...[
                 const SizedBox(height: 12),
                 Text(

@@ -121,6 +121,14 @@ class _TrainingCalendarState extends State<TrainingCalendar> {
     );
   }
 
+  Color _dayColor(int seconds) {
+    if (seconds <= 0) return const Color(0xFFF4EAD6);
+    if (seconds < 15 * 60) return const Color(0xFFF0C397);
+    if (seconds < 30 * 60) return const Color(0xFFEBA880);
+    if (seconds < 60 * 60) return const Color(0xFFE68F73);
+    return const Color(0xFFDF7B65);
+  }
+
   Widget _buildMonth(DateTime month, double cellHeight) {
     final first = DateTime(month.year, month.month);
     final count = DateTime(month.year, month.month + 1, 0).day;
@@ -139,11 +147,16 @@ class _TrainingCalendarState extends State<TrainingCalendar> {
         ...List.generate(count, (i) {
           final date = DateTime(month.year, month.month, i + 1);
           final seconds = widget.sessions
-              .where((s) => dayOf(s.startedAt) == date)
+              .where((s) => s.isCompleted && dayOf(s.startedAt) == date)
               .fold(0, (n, s) => n + s.totalDurationSeconds);
+          final textColor = seconds >= 30 * 60
+              ? AppColors.paper
+              : seconds > 0
+              ? AppColors.ink
+              : AppColors.muted;
           return Container(
             decoration: BoxDecoration(
-              color: seconds > 0 ? AppColors.yellow : const Color(0xFFF4EAD6),
+              color: _dayColor(seconds),
               borderRadius: BorderRadius.circular(10),
               border: date == today
                   ? Border.all(color: AppColors.teal, width: 2.5)
@@ -155,9 +168,19 @@ class _TrainingCalendarState extends State<TrainingCalendar> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('${i + 1}', style: body(14, color: AppColors.muted)),
+                    Text(
+                      '${i + 1}',
+                      style: body(
+                        14,
+                        color: textColor,
+                        weight: seconds > 0 ? FontWeight.w600 : FontWeight.w400,
+                      ),
+                    ),
                     if (seconds > 0)
-                      Text('${(seconds / 60).round()}′', style: body(10.5)),
+                      Text(
+                        '${(seconds / 60).round()}′',
+                        style: body(10.5, color: textColor),
+                      ),
                   ],
                 ),
               ),
