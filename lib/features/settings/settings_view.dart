@@ -5,6 +5,7 @@ import '../../app/theme/app_theme.dart';
 import '../../app/widgets/app_widgets.dart';
 import '../../core/utils/duration_calculator.dart';
 import '../../core/utils/time_formatter.dart';
+import '../../data/models/breathing_settings.dart';
 import 'settings_controller.dart';
 import 'backup_settings_card.dart';
 
@@ -17,6 +18,10 @@ class SettingsView extends GetView<SettingsController> {
     return AppPage(
       title: 'Cài đặt buổi thở',
       children: [
+        _VoiceSelectionCard(
+          selectedVoice: s.voice,
+          onChanged: controller.voice,
+        ),
         DashedBorderCard(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -121,7 +126,7 @@ class SettingsView extends GetView<SettingsController> {
         ),
         DashedBorderCard(
           child: Text(
-            'Mỗi hiệp: thở 40 nhịp sâu theo giọng ông Wim (mỗi nhịp 3,26 giây: hít 1,7, thở 1,56, đúng nhịp clip mẫu) → thở ra hết rồi NÍN theo số giây trên → hít đầy và GIỮ hơi phục hồi → thả ra, sang hiệp mới.\nBấm Bắt đầu là app tự dẫn tới hết, không cần chạm gì.\nThời gian chỉ là cài đặt bài tập, không phải mục tiêu bắt buộc. Thở lại bình thường và dừng ngay khi cần; không cố nín theo đồng hồ.\nĐừng tập khi đang lái xe, đang ở dưới nước hay đang đứng: ngồi hoặc nằm chỗ an toàn.',
+            'Mỗi hiệp: thở 40 nhịp sâu theo giọng đã chọn (mỗi nhịp 3,26 giây: hít 1,7, thở 1,56, đúng nhịp clip mẫu) → thở ra hết rồi NÍN theo số giây trên → hít đầy và GIỮ hơi phục hồi → thả ra, sang hiệp mới.\nBấm Bắt đầu là app tự dẫn tới hết, không cần chạm gì.\nThời gian chỉ là cài đặt bài tập, không phải mục tiêu bắt buộc. Thở lại bình thường và dừng ngay khi cần; không cố nín theo đồng hồ.\nĐừng tập khi đang lái xe, đang ở dưới nước hay đang đứng: ngồi hoặc nằm chỗ an toàn.',
             style: body(14.5, color: AppColors.muted),
           ),
         ),
@@ -153,6 +158,60 @@ class SettingsView extends GetView<SettingsController> {
       ],
     );
   });
+}
+
+class _VoiceSelectionCard extends StatelessWidget {
+  final GuidanceVoice selectedVoice;
+  final ValueChanged<GuidanceVoice> onChanged;
+  const _VoiceSelectionCard({
+    required this.selectedVoice,
+    required this.onChanged,
+  });
+
+  Widget _option(GuidanceVoice voice) {
+    final selected = selectedVoice == voice;
+    return Semantics(
+      selected: selected,
+      child: OutlinedButton(
+        onPressed: () => onChanged(voice),
+        style: OutlinedButton.styleFrom(
+          minimumSize: const Size(0, 46),
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+          backgroundColor: selected ? AppColors.coral : const Color(0xFFFFFDF7),
+          foregroundColor: selected ? Colors.white : AppColors.ink,
+          side: BorderSide(
+            color: selected ? const Color(0xFFC8634A) : AppColors.border,
+            width: 2,
+          ),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(14),
+          ),
+          textStyle: body(16, weight: FontWeight.w700),
+        ),
+        child: Text(voice.label, textAlign: TextAlign.center),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) => DashedBorderCard(
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const AppSectionTitle('Giọng dẫn'),
+        _option(GuidanceVoice.original),
+        const SizedBox(height: 8),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(child: _option(GuidanceVoice.ruoc)),
+            const SizedBox(width: 8),
+            Expanded(child: _option(GuidanceVoice.chaBong)),
+          ],
+        ),
+      ],
+    ),
+  );
 }
 
 class SettingSliderCard extends StatelessWidget {

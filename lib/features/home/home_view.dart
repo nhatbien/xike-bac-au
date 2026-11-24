@@ -74,7 +74,7 @@ class HomeView extends GetView<HomeController> {
         ),
         const SizedBox(height: 4),
         Text(
-          'thở cùng ông Wim · rảnh tay từ đầu tới cuối',
+          'thở cùng ${settings.voice.label} · rảnh tay từ đầu tới cuối',
           style: body(15, color: AppColors.muted),
           textAlign: TextAlign.center,
         ),

@@ -2,6 +2,7 @@ import 'dart:io';
 import 'dart:async';
 
 import 'package:get/get.dart';
+import 'package:flutter/services.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/services/audio_manifest.dart';
@@ -64,13 +65,19 @@ class BreathingController extends GetxController {
       final config = BreathingSettings.fromJson(
         settings.settings.value.toJson(),
       );
-      engine = BreathingEngine(config, manifest);
+      final selectedText = config.voice == GuidanceVoice.original
+          ? manifestText
+          : await rootBundle.loadString(config.voice.manifestAsset);
+      final selectedManifest = config.voice == GuidanceVoice.original
+          ? manifest
+          : AudioManifest.parse(selectedText);
+      engine = BreathingEngine(config, selectedManifest);
       snapshot.value = engine!.at(0);
       // iOS Now Playing uses the audio session; it needs no notification grant.
       if (Platform.isAndroid) {
         await Permission.notification.request();
       }
-      await audio.prepareSession(config, manifest, manifestText);
+      await audio.prepareSession(config, selectedManifest, selectedText);
       if (generation != _generation) {
         await audio.stop();
         return;

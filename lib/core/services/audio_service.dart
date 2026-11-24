@@ -100,10 +100,10 @@ class TrainingAudioHandler extends BaseAudioHandler with SeekHandler {
       flush: true,
     );
     final path =
-        '${cache.path}/xike-v2-${settings.rounds}-${settings.holdSeconds}-${settings.recoverySeconds}.wav';
+        '${cache.path}/xike-v3-${settings.voice.id}-${settings.rounds}-${settings.holdSeconds}-${settings.recoverySeconds}.wav';
     if (!File(path).existsSync()) {
       final data = await Future.wait([
-        rootBundle.load('assets/am-thanh/giong.pcm'),
+        rootBundle.load(settings.voice.audioAsset),
         rootBundle.load('assets/am-thanh/nhac.pcm'),
       ]);
       logs.log('Dựng WAV lossless 22050Hz mono');
@@ -118,7 +118,7 @@ class TrainingAudioHandler extends BaseAudioHandler with SeekHandler {
     mediaItem.add(
       MediaItem(
         id: path,
-        title: 'Thở cùng ông Wim',
+        title: 'Thở cùng ${settings.voice.label}',
         album: 'Xì ke bắc âu',
         artUri: artwork.uri,
         duration: null,
@@ -131,7 +131,8 @@ class TrainingAudioHandler extends BaseAudioHandler with SeekHandler {
     // Keep only the current render. Long sessions may consume hundreds of MB.
     for (final entry in cache.listSync()) {
       if (entry is File &&
-          entry.path.contains('/xike-v2-') &&
+          (entry.path.contains('/xike-v2-') ||
+              entry.path.contains('/xike-v3-')) &&
           entry.path != path) {
         try {
           entry.deleteSync();
