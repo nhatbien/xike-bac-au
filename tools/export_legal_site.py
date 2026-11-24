@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DEST = ROOT / 'sites/xike-legal/dist'
-EMAIL = 'vqthanh1412489@gmail.com'
+EMAIL = 'nhatbien99@gmail.com'
 
 def text(value):
     return escape(value).replace(EMAIL, f'<a href="mailto:{EMAIL}">{EMAIL}</a>')
@@ -14,10 +14,10 @@ def render(title, content, updated):
     nav = ''.join(f'<a href="/{key}/"'+ (' aria-current="page"' if page['title'] == title else '') + f'>{escape(page["title"])}</a>' for key, page in data['pages'].items())
     return f'''<!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{escape(title)} · Xì ke bắc âu</title><meta name="description" content="{escape(title)} của ứng dụng Xì ke bắc âu, do MAX cung cấp."><link rel="stylesheet" href="/style.css"></head>
+<title>{escape(title)} · Xì ke bắc âu</title><meta name="description" content="{escape(title)} của ứng dụng Xì ke bắc âu, do Mai Biên cung cấp."><link rel="stylesheet" href="/style.css"></head>
 <body><a class="skip" href="#content">Đến nội dung</a><header><a class="brand" href="/">Xì ke bắc âu</a><span>Thở chậm. Tập an toàn.</span><nav aria-label="Thông tin ứng dụng">{nav}</nav></header>
-<main id="content"><p class="eyebrow">THÔNG TIN ỨNG DỤNG · MAX</p><h1>{escape(title)}</h1><p class="updated">Cập nhật: {escape(updated)}</p>{content}</main>
-<footer><p>MAX · <a href="mailto:{EMAIL}">{EMAIL}</a></p><p>Ứng dụng hỗ trợ luyện tập và thư giãn thông thường. Không phải thiết bị y tế.</p></footer></body></html>'''
+<main id="content"><p class="eyebrow">THÔNG TIN ỨNG DỤNG · MAI BIÊN</p><h1>{escape(title)}</h1><p class="updated">Cập nhật: {escape(updated)}</p>{content}</main>
+<footer><p>Mai Biên · <a href="mailto:{EMAIL}">{EMAIL}</a></p><p>Ứng dụng hỗ trợ luyện tập và thư giãn thông thường. Không phải thiết bị y tế.</p></footer></body></html>'''
 
 data = json.loads((ROOT / 'assets/legal/content.json').read_text())
 DEST.mkdir(parents=True, exist_ok=True)

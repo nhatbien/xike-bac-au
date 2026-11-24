@@ -3,7 +3,7 @@ Requires integration-test persisted session/attempt data; never targets the orig
 """
 import json,subprocess,time
 from pathlib import Path
-adb='/Users/quocthanhvu/Library/Android/sdk/platform-tools/adb';package='max.xike.hihi'
+adb='/Users/quocthanhvu/Library/Android/sdk/platform-tools/adb';package='com.biestudio.xikebacau'
 def run(*args):return subprocess.check_output([adb,*args],text=True)
 def state():return json.loads(run('shell','run-as',package,'cat','app_flutter/GetStorage.gs'))
 def launch():run('shell','am','start','-n',package+'/.MainActivity');time.sleep(5)

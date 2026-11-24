@@ -1,7 +1,7 @@
 {
-  "updated": "23/11/2026",
-  "owner": "MAX",
-  "email": "vqthanh1412489@gmail.com",
+  "updated": "24/11/2026",
+  "owner": "Mai Biên",
+  "email": "nhatbien99@gmail.com",
   "pages": {
     "privacy": {
       "title": "Chính sách quyền riêng tư",
@@ -9,7 +9,7 @@
         {
           "title": "Đơn vị chịu trách nhiệm",
           "paragraphs": [
-            "Xì ke bắc âu do cá nhân MAX cung cấp. Liên hệ về quyền riêng tư và hỗ trợ: vqthanh1412489@gmail.com. Chính sách này mô tả phiên bản ứng dụng chạy offline, không có tài khoản người dùng."
+            "Xì ke bắc âu do cá nhân Mai Biên cung cấp. Liên hệ về quyền riêng tư và hỗ trợ: nhatbien99@gmail.com. Chính sách này mô tả phiên bản ứng dụng chạy offline, không có tài khoản người dùng."
           ]
         },
         {
@@ -22,9 +22,9 @@
         {
           "title": "Truyền và chia sẻ dữ liệu",
           "paragraphs": [
-            "App không có máy chủ tài khoản, không tích hợp quảng cáo hay SDK phân tích hành vi, không tự gửi lịch sử tập hoặc nhật ký tới MAX và không bán dữ liệu. Không yêu cầu tên, email, vị trí, danh bạ, camera hoặc micro để tập.",
+            "App không có máy chủ tài khoản, không tích hợp quảng cáo hay SDK phân tích hành vi, không tự gửi lịch sử tập hoặc nhật ký tới Mai Biên và không bán dữ liệu. Không yêu cầu tên, email, vị trí, danh bạ, camera hoặc micro để tập.",
             "Khi bạn chủ động chọn Gửi nhật ký và chọn nơi nhận trong bảng chia sẻ của hệ điều hành, nội dung có thể được chuyển cho ứng dụng hoặc người nhận do bạn chọn. Nhật ký có thể gồm thông tin thiết bị, cấu hình và số liệu tập; hãy kiểm tra trước khi gửi. Bên nhận áp dụng chính sách riêng của họ.",
-            "Nếu bạn gửi email hỗ trợ, MAX nhận địa chỉ email và nội dung/tệp bạn tự gửi để xử lý yêu cầu. Email được xử lý qua Gmail theo chính sách của nhà cung cấp; không gửi thông tin sức khỏe nhạy cảm nếu không cần thiết."
+            "Nếu bạn gửi email hỗ trợ, Mai Biên nhận địa chỉ email và nội dung/tệp bạn tự gửi để xử lý yêu cầu. Email được xử lý qua Gmail theo chính sách của nhà cung cấp; không gửi thông tin sức khỏe nhạy cảm nếu không cần thiết."
           ]
         },
         {
@@ -38,8 +38,8 @@
           "paragraphs": [
             "Lịch sử và cài đặt được lưu trong vùng dữ liệu riêng của app cho đến khi bạn xóa dữ liệu hoặc gỡ app; không có thời hạn tự hết cho lịch sử. Nhật ký tự loại sự kiện cũ khi vượt 300 mục. App giữ một tệp âm thanh cache để phát buổi tập.",
             "Bạn có thể xóa từng buổi trong Các buổi đã tập và xóa lần nín gần nhất trên màn Nín thở vui. Để xóa toàn bộ dữ liệu trên Android: Cài đặt hệ thống → Ứng dụng → Xì ke bắc âu → Bộ nhớ → Xóa dữ liệu. Trên iOS, dùng Xóa ứng dụng (không phải Gỡ bỏ ứng dụng/Offload). Thao tác này không thể hoàn tác trong app.",
-            "Tùy cài đặt và cơ chế của thiết bị, hệ điều hành có thể sao lưu/khôi phục dữ liệu ứng dụng. MAX không vận hành dịch vụ sao lưu riêng. Hãy quản lý hoặc xóa bản sao lưu qua nhà cung cấp hệ điều hành. Xóa trong app không xóa bản sao bạn đã chia sẻ hoặc email đã gửi.",
-            "Email hỗ trợ được giữ trong thời gian xử lý yêu cầu và nhu cầu lưu hồ sơ liên quan; bạn có thể yêu cầu xóa qua email, trừ phần phải lưu theo nghĩa vụ pháp luật. Không có tài khoản hoặc dữ liệu lịch sử tập trên máy chủ MAX để xóa từ xa."
+            "Tùy cài đặt và cơ chế của thiết bị, hệ điều hành có thể sao lưu/khôi phục dữ liệu ứng dụng. Mai Biên không vận hành dịch vụ sao lưu riêng. Hãy quản lý hoặc xóa bản sao lưu qua nhà cung cấp hệ điều hành. Xóa trong app không xóa bản sao bạn đã chia sẻ hoặc email đã gửi.",
+            "Email hỗ trợ được giữ trong thời gian xử lý yêu cầu và nhu cầu lưu hồ sơ liên quan; bạn có thể yêu cầu xóa qua email, trừ phần phải lưu theo nghĩa vụ pháp luật. Không có tài khoản hoặc dữ liệu lịch sử tập trên máy chủ Mai Biên để xóa từ xa."
           ]
         },
         {
@@ -52,7 +52,7 @@
           "title": "Trẻ em và thay đổi chính sách",
           "paragraphs": [
             "App không được thiết kế riêng cho trẻ em và không chủ động yêu cầu thông tin cá nhân của trẻ em. Người chưa thành niên cần người giám hộ xem xét mức độ phù hợp của bài tập.",
-            "Khi cách xử lý dữ liệu thay đổi, MAX cập nhật chính sách và ngày cập nhật; sẽ cung cấp thông báo hoặc xin chấp thuận khi pháp luật yêu cầu. Bản trong app tương ứng phiên bản đã cài; bản trên website có thể mới hơn."
+            "Khi cách xử lý dữ liệu thay đổi, Mai Biên cập nhật chính sách và ngày cập nhật; sẽ cung cấp thông báo hoặc xin chấp thuận khi pháp luật yêu cầu. Bản trong app tương ứng phiên bản đã cài; bản trên website có thể mới hơn."
           ]
         }
       ]
@@ -63,7 +63,7 @@
         {
           "title": "Phạm vi sử dụng",
           "paragraphs": [
-            "Xì ke bắc âu do MAX cung cấp để hướng dẫn bài thở bằng âm thanh, bấm giờ nín thở và xem lịch sử tập cục bộ. Liên hệ: vqthanh1412489@gmail.com. Hãy đọc các điều khoản và cảnh báo trước khi sử dụng; nếu không đồng ý, không tiếp tục sử dụng app."
+            "Xì ke bắc âu do Mai Biên cung cấp để hướng dẫn bài thở bằng âm thanh, bấm giờ nín thở và xem lịch sử tập cục bộ. Liên hệ: nhatbien99@gmail.com. Hãy đọc các điều khoản và cảnh báo trước khi sử dụng; nếu không đồng ý, không tiếp tục sử dụng app."
           ]
         },
         {
@@ -106,19 +106,19 @@
         {
           "title": "Dữ liệu và hoạt động của ứng dụng",
           "paragraphs": [
-            "Dữ liệu tập được lưu trên máy theo Chính sách quyền riêng tư. MAX không có dịch vụ đồng bộ hoặc khôi phục lịch sử từ máy chủ. Xóa dữ liệu, mất thiết bị hoặc sự cố có thể làm mất lịch sử. Khi liên hệ hỗ trợ, bạn quyết định có chia sẻ nhật ký hay không."
+            "Dữ liệu tập được lưu trên máy theo Chính sách quyền riêng tư. Mai Biên không có dịch vụ đồng bộ hoặc khôi phục lịch sử từ máy chủ. Xóa dữ liệu, mất thiết bị hoặc sự cố có thể làm mất lịch sử. Khi liên hệ hỗ trợ, bạn quyết định có chia sẻ nhật ký hay không."
           ]
         },
         {
           "title": "Giới hạn và quyền theo luật",
           "paragraphs": [
-            "MAX không cam kết ứng dụng luôn hoạt động liên tục, không có lỗi hoặc đạt kết quả sức khỏe cụ thể. Trong phạm vi pháp luật cho phép, trách nhiệm được giới hạn đối với thiệt hại gián tiếp phát sinh từ việc dùng app. Không nội dung nào loại trừ trách nhiệm không được phép loại trừ, hoặc hạn chế quyền bắt buộc của người tiêu dùng theo pháp luật áp dụng. Cảnh báo và việc xác nhận không phải sự từ bỏ quyền hợp pháp của bạn."
+            "Mai Biên không cam kết ứng dụng luôn hoạt động liên tục, không có lỗi hoặc đạt kết quả sức khỏe cụ thể. Trong phạm vi pháp luật cho phép, trách nhiệm được giới hạn đối với thiệt hại gián tiếp phát sinh từ việc dùng app. Không nội dung nào loại trừ trách nhiệm không được phép loại trừ, hoặc hạn chế quyền bắt buộc của người tiêu dùng theo pháp luật áp dụng. Cảnh báo và việc xác nhận không phải sự từ bỏ quyền hợp pháp của bạn."
           ]
         },
         {
           "title": "Thay đổi và liên hệ",
           "paragraphs": [
-            "MAX có thể sửa lỗi, cập nhật tính năng và điều khoản; ngày cập nhật được ghi trong tài liệu. Thay đổi cần thông báo hoặc chấp thuận theo luật sẽ được thực hiện theo yêu cầu tương ứng. Đối với thắc mắc, khiếu nại hoặc quyền liên quan đến nội dung, liên hệ vqthanh1412489@gmail.com."
+            "Mai Biên có thể sửa lỗi, cập nhật tính năng và điều khoản; ngày cập nhật được ghi trong tài liệu. Thay đổi cần thông báo hoặc chấp thuận theo luật sẽ được thực hiện theo yêu cầu tương ứng. Đối với thắc mắc, khiếu nại hoặc quyền liên quan đến nội dung, liên hệ nhatbien99@gmail.com."
           ]
         }
       ]
@@ -127,9 +127,9 @@
       "title": "Hỗ trợ",
       "sections": [
         {
-          "title": "Liên hệ MAX",
+          "title": "Liên hệ Mai Biên",
           "paragraphs": [
-            "Email: vqthanh1412489@gmail.com. Gửi tên app Xì ke bắc âu, phiên bản, mẫu thiết bị, hệ điều hành, các bước gặp lỗi và kết quả bạn mong đợi. Không có cam kết thời gian phản hồi cố định. Đây là kênh hỗ trợ kỹ thuật, không phải tư vấn y tế hoặc cấp cứu."
+            "Email: nhatbien99@gmail.com. Gửi tên app Xì ke bắc âu, phiên bản, mẫu thiết bị, hệ điều hành, các bước gặp lỗi và kết quả bạn mong đợi. Không có cam kết thời gian phản hồi cố định. Đây là kênh hỗ trợ kỹ thuật, không phải tư vấn y tế hoặc cấp cứu."
           ]
         },
         {
@@ -149,7 +149,7 @@
           "title": "Quản lý và xóa dữ liệu",
           "paragraphs": [
             "Xóa từng buổi tại Các buổi đã tập → chọn buổi → Xoá buổi này. Trên Nín thở vui có thể xóa lần vừa rồi.",
-            "Để xóa toàn bộ dữ liệu Android, dùng Cài đặt hệ thống → Ứng dụng → Xì ke bắc âu → Bộ nhớ → Xóa dữ liệu. Trên iOS, dùng Xóa ứng dụng; Offload vẫn giữ dữ liệu. Quản lý bản sao lưu của hệ điều hành riêng nếu có. MAX không có tài khoản hoặc lịch sử trên máy chủ để khôi phục hay xóa từ xa."
+            "Để xóa toàn bộ dữ liệu Android, dùng Cài đặt hệ thống → Ứng dụng → Xì ke bắc âu → Bộ nhớ → Xóa dữ liệu. Trên iOS, dùng Xóa ứng dụng; Offload vẫn giữ dữ liệu. Quản lý bản sao lưu của hệ điều hành riêng nếu có. Mai Biên không có tài khoản hoặc lịch sử trên máy chủ để khôi phục hay xóa từ xa."
           ]
         },
         {

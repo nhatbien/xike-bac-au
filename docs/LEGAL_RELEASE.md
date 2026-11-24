@@ -1,7 +1,7 @@
 # Chính sách và cảnh báo an toàn
 
-Chủ ứng dụng: **MAX**. Email hỗ trợ: **vqthanh1412489@gmail.com**.
-Ngày cập nhật nội dung: **23/11/2026**.
+Chủ ứng dụng: **Mai Biên**. Email hỗ trợ: **nhatbien99@gmail.com**.
+Ngày cập nhật nội dung: **24/11/2026**.
 
 ## Nội dung và cập nhật
 
@@ -50,7 +50,7 @@ Xóa dữ liệu/gỡ app cũng làm mất xác nhận (trừ trường hợp d�
 - Hoàn tất Health apps declaration; thêm tuyên bố không phải thiết bị y tế,
   không chẩn đoán/điều trị/chữa/phòng bệnh và khuyến nghị tư vấn chuyên môn
   vào mô tả store, như nội dung trong Điều khoản/cảnh báo.
-- Kiểm tra tên MAX/tên app khớp thông tin chủ thể thể hiện trên store.
+- Kiểm tra tên Mai Biên/tên app khớp thông tin chủ thể thể hiện trên store.
 - Xác nhận quyền phân phối ảnh, giọng đọc và âm thanh riêng. Điều khoản không
   tạo quyền sử dụng tài nguyên của bên thứ ba.
 

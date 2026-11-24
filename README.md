@@ -2,7 +2,7 @@
 
 Ứng dụng Android và iOS native, offline, port từ tài nguyên web/PCM được cung cấp. Không dùng WebView.
 
-App yêu cầu mã mời ở lần mở đầu. Danh sách mã nằm trong `lib/config/invite_codes.dart`, hiện có `max` và `chuotbu`. Mã không phân biệt chữ hoa/thường, bỏ khoảng trắng ở hai đầu; kích hoạt lưu trên thiết bị nên lần sau không cần nhập lại. Xóa dữ liệu app sẽ cần nhập lại. Sửa danh sách phải build và cài bản mới; mã đã lưu chỉ còn hợp lệ nếu vẫn nằm trong danh sách của bản đang chạy. Mã dùng chung, hoạt động offline và không có giới hạn số người dùng hoặc thu hồi từ xa. Bundle ID iOS/applicationId Android: `max.xike.hihi`.
+App yêu cầu mã mời ở lần mở đầu. Danh sách mã nằm trong `lib/config/invite_codes.dart`, hiện có `max` và `chuotbu`. Mã không phân biệt chữ hoa/thường, bỏ khoảng trắng ở hai đầu; kích hoạt lưu trên thiết bị nên lần sau không cần nhập lại. Xóa dữ liệu app sẽ cần nhập lại. Sửa danh sách phải build và cài bản mới; mã đã lưu chỉ còn hợp lệ nếu vẫn nằm trong danh sách của bản đang chạy. Mã dùng chung, hoạt động offline và không có giới hạn số người dùng hoặc thu hồi từ xa. Bundle ID iOS/applicationId Android: `com.biestudio.xikebacau`.
 
 ## Chạy
 
@@ -51,7 +51,7 @@ flutter build apk --release
 flutter drive --keep-app-running --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d <emulator-id>
 ```
 
-Integration test chạy trên emulator chuyên kiểm thử, cài app và tạo dữ liệu thử trong sandbox của app. Driver khóa màn hình 5 giây để xác minh background playback. Đường dẫn adb trong driver dành cho máy workspace này; thay nếu chạy máy khác. Để chạy lại từ trạng thái rỗng: `adb shell pm clear max.xike.hihi` trên emulator kiểm thử.
+Integration test chạy trên emulator chuyên kiểm thử, cài app và tạo dữ liệu thử trong sandbox của app. Driver khóa màn hình 5 giây để xác minh background playback. Đường dẫn adb trong driver dành cho máy workspace này; thay nếu chạy máy khác. Để chạy lại từ trạng thái rỗng: `adb shell pm clear com.biestudio.xikebacau` trên emulator kiểm thử.
 
 Ảnh kiểm thử ở `artifacts/screenshots/`, overlay/diff và số đo ở `artifacts/visual/`. Chạy `python tools/compare_screenshots.py` bằng Python có Pillow sau integration test.
 

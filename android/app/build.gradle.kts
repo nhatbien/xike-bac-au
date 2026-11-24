@@ -18,7 +18,7 @@ if (releaseRequested && !hasReleaseSigning) {
 }
 
 android {
-    namespace = "max.xike.hihi"
+    namespace = "com.biestudio.xikebacau"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -28,7 +28,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "max.xike.hihi"
+        applicationId = "com.biestudio.xikebacau"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = flutter.minSdkVersion

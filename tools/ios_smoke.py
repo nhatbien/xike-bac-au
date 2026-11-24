@@ -1,7 +1,7 @@
 """Cold-start persistence check on the dedicated iOS QA Simulator only."""
 import json,subprocess,time
 from pathlib import Path
-udid='A6DE8661-7AFB-4E8E-9FA9-B6AB8CEE02E9';bundle='max.xike.hihi'
+udid='A6DE8661-7AFB-4E8E-9FA9-B6AB8CEE02E9';bundle='com.biestudio.xikebacau'
 def sim(*args):return subprocess.check_output(['xcrun','simctl',*args],text=True).strip()
 def state():
  root=Path(sim('get_app_container',udid,bundle,'data'))

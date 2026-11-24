@@ -181,7 +181,7 @@ class AboutView extends StatelessWidget {
       DashedBorderCard(child: Image.asset('assets/web/dau.jpg')),
       const SizedBox(height: 16),
       Text(
-        'Xì ke bắc âu do MAX cung cấp để hướng dẫn tập thở bằng âm thanh và theo dõi lịch sử trên thiết bị. Đây là ứng dụng độc lập, không phải ứng dụng chính thức của Wim Hof và không tuyên bố được ông bảo trợ.',
+        'Xì ke bắc âu do Mai Biên cung cấp để hướng dẫn tập thở bằng âm thanh và theo dõi lịch sử trên thiết bị. Đây là ứng dụng độc lập, không phải ứng dụng chính thức của Wim Hof và không tuyên bố được ông bảo trợ.',
         style: serif(25, weight: FontWeight.w500).copyWith(height: 1.34),
       ),
     ],

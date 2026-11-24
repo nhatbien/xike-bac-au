@@ -158,7 +158,7 @@ void main() {
           ),
         );
         await t.pumpAndSettle();
-        expect(find.textContaining('Cập nhật: 23/11/2026'), findsOneWidget);
+        expect(find.textContaining('Cập nhật: 24/11/2026'), findsOneWidget);
         expect(t.takeException(), isNull);
       }
       await t.pumpWidget(const SizedBox());
