@@ -71,5 +71,5 @@ Future<void> initializeDependencies() async {
     previousErrorHandler?.call(details);
     logs.log('Flutter: ${details.exceptionAsString()}');
   };
-  logs.log('Mở app Xì ke bắc âu 1.0.0');
+  logs.log('Mở app Ìe Bắc Âu 1.0.0');
 }

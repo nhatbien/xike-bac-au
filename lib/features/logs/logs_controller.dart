@@ -81,7 +81,7 @@ class LogsController extends GetxController {
       await SharePlus.instance.share(
         ShareParams(
           text: text,
-          subject: 'Nhật ký Xì ke bắc âu',
+          subject: 'Nhật ký Ìe Bắc Âu',
           sharePositionOrigin: origin,
         ),
       );

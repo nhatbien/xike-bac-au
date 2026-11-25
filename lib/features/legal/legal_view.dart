@@ -31,7 +31,7 @@ class LegalView extends StatelessWidget {
         title: page['title'] as String,
         children: [
           Text(
-            'Xì ke bắc âu · MAX\nCập nhật: ${data['updated']}',
+            'Ìe Bắc Âu · MAX\nCập nhật: ${data['updated']}',
             style: body(14, color: AppColors.muted),
           ),
           const SizedBox(height: 16),

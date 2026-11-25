@@ -119,7 +119,7 @@ class TrainingAudioHandler extends BaseAudioHandler with SeekHandler {
       MediaItem(
         id: path,
         title: 'Thở cùng ${settings.voice.label}',
-        album: 'Xì ke bắc âu',
+        album: 'Ìe Bắc Âu',
         artUri: artwork.uri,
         duration: null,
       ),

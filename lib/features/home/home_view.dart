@@ -68,7 +68,7 @@ class HomeView extends GetView<HomeController> {
       children: [
         const SizedBox(height: 10),
         Text(
-          'Xì ke bắc âu',
+          'Ìe Bắc Âu',
           style: serif(36).copyWith(height: 1.15),
           textAlign: TextAlign.center,
         ),
@@ -162,7 +162,7 @@ class HomeView extends GetView<HomeController> {
         InkWell(
           onTap: () => Get.to(() => const AboutView()),
           child: Text(
-            'Xì ke bắc âu 1.0.0 · thở theo cách của Wim Hof, không phải app chính thức của ông',
+            'Ìe Bắc Âu 1.0.0 · thở theo cách của Wim Hof, không phải app chính thức của ông',
             style: body(12, color: AppColors.muted),
             textAlign: TextAlign.center,
           ),
@@ -181,7 +181,7 @@ class AboutView extends StatelessWidget {
       DashedBorderCard(child: Image.asset('assets/web/dau.jpg')),
       const SizedBox(height: 16),
       Text(
-        'Xì ke bắc âu do MAX cung cấp để hướng dẫn tập thở bằng âm thanh và theo dõi lịch sử trên thiết bị. Đây là ứng dụng độc lập, không phải ứng dụng chính thức của Wim Hof và không tuyên bố được ông bảo trợ.',
+        'Ìe Bắc Âu do MAX cung cấp để hướng dẫn tập thở bằng âm thanh và theo dõi lịch sử trên thiết bị. Đây là ứng dụng độc lập, không phải ứng dụng chính thức của Wim Hof và không tuyên bố được ông bảo trợ.',
         style: serif(25, weight: FontWeight.w500).copyWith(height: 1.34),
       ),
     ],

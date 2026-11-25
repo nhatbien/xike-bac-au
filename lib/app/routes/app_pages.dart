@@ -22,7 +22,7 @@ class AppPages {
   static final pages = [
     GetPage(
       name: '/licenses',
-      page: () => const LicensePage(applicationName: 'Xì ke bắc âu'),
+      page: () => const LicensePage(applicationName: 'Ìe Bắc Âu'),
     ),
     GetPage(name: '/privacy', page: () => const LegalView('privacy')),
     GetPage(name: '/terms', page: () => const LegalView('terms')),
