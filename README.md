@@ -1,4 +1,4 @@
-# Xì ke bắc âu — Flutter + GetX
+# Ìe Bắc Âu — Flutter + GetX
 
 Ứng dụng Android và iOS native, offline, port từ tài nguyên web/PCM được cung cấp. Không dùng WebView.
 

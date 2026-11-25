@@ -1,4 +1,4 @@
-/* Xì ke bắc âu — giao diện (trang đóng gói trong APK). Dữ liệu + máy chạy buổi thở nằm phía Java, gọi qua cầu window.App.
+/* Ìe Bắc Âu — giao diện (trang đóng gói trong APK). Dữ liệu + máy chạy buổi thở nằm phía Java, gọi qua cầu window.App.
    Các màn: chinh · buoi (buổi thở rảnh tay) · xong / chitiet · ninvui · caidat · thongke · ds · nhatky. */
 'use strict';
 
@@ -141,7 +141,7 @@ const XK = (() => {
       </section>
       <p class="ky-ten">— Wim Hof không nói vậy</p>
       <header class="dau">
-        <h1>Xì ke bắc âu</h1>
+        <h1>Ìe Bắc Âu</h1>
         <p class="phu">${e(d.dongPhu || 'thở cùng ông Wim · rảnh tay từ đầu tới cuối')}</p>
       </header>
       <div class="the nhac">${IC.tuyet}<p>${e(d.nhacNho || '')}</p></div>
@@ -154,7 +154,7 @@ const XK = (() => {
         ${muc('nhatky', 'Nhật ký', 'chụp màn này gửi lại khi có lỗi', IC.but, 'var(--giay-dam)', 'var(--mo)')}
       </nav>
       <p class="cau">“${e(d.cau || '')}”</p>
-      <p class="chan">Xì ke bắc âu ${e(d.phienBan || '')} · thở theo cách của Wim Hof, không phải app chính thức của ông</p>`;
+      <p class="chan">Ìe Bắc Âu ${e(d.phienBan || '')} · thở theo cách của Wim Hof, không phải app chính thức của ông</p>`;
     $('#batDau', el).onclick = batDau;
     $$('[data-di]', el).forEach(b => { b.onclick = () => di(b.dataset.di); });
     vuaLoiOng();

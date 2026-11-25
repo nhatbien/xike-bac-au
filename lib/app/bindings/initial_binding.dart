@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../data/models/breathing_settings.dart';
 import '../../core/services/storage_service.dart';
 import '../../core/services/backup_service.dart';
 import '../../core/services/logging_service.dart';
@@ -31,7 +32,16 @@ Future<void> initializeDependencies() async {
   Get.put(BackupService(storage, settings, sessions), permanent: true);
   final text = await rootBundle.loadString('assets/am-thanh/lich.txt');
   final manifest = Get.put(AudioManifest.parse(text), permanent: true);
-  Get.put(DurationCalculator(manifest), permanent: true);
+  final voiceManifests = <GuidanceVoice, AudioManifest>{};
+  for (final voice in GuidanceVoice.values) {
+    voiceManifests[voice] = voice == GuidanceVoice.original
+        ? manifest
+        : AudioManifest.parse(await rootBundle.loadString(voice.manifestAsset));
+  }
+  Get.put(
+    DurationCalculator(manifest, voiceManifests: voiceManifests),
+    permanent: true,
+  );
   final handler = await AudioService.init(
     builder: () => TrainingAudioHandler(logs),
     config: const AudioServiceConfig(
@@ -61,5 +71,5 @@ Future<void> initializeDependencies() async {
     previousErrorHandler?.call(details);
     logs.log('Flutter: ${details.exceptionAsString()}');
   };
-  logs.log('Mở app Xì ke bắc âu 1.0.0');
+  logs.log('Mở app Ìe Bắc Âu 1.0.0');
 }

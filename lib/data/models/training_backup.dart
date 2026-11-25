@@ -43,7 +43,7 @@ class TrainingBackup {
       final root = jsonDecode(contents) as Map<String, dynamic>;
       if (root['format'] != format) {
         throw const FormatException(
-          'Đây không phải file sao lưu Xì ke bắc âu.',
+          'Đây không phải file sao lưu Ìe Bắc Âu.',
         );
       }
       if (root['version'] is! int || root['version'] != version) {

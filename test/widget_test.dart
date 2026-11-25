@@ -66,6 +66,30 @@ void main() {
     await t.pumpAndSettle();
   }
 
+  testWidgets('Voice selection persists and survives settings changes', (
+    t,
+  ) async {
+    Get.put(SettingsController(settings));
+    await mount(t, const SettingsView());
+    for (final voice in [
+      GuidanceVoice.ruoc,
+      GuidanceVoice.chaBong,
+      GuidanceVoice.original,
+    ]) {
+      await t.tap(find.text(voice.label));
+      await t.pumpAndSettle();
+      expect(settings.settings.value.voice, voice);
+      expect(SettingsRepository(storage, logs).settings.value.voice, voice);
+    }
+    await t.tap(find.text('Ruốc'));
+    await t.pumpAndSettle();
+    await t.tap(find.byKey(const ValueKey('round-8')));
+    await t.pumpAndSettle();
+    expect(settings.settings.value.voice, GuidanceVoice.ruoc);
+    expect(settings.settings.value.rounds, 8);
+    expect(t.takeException(), isNull);
+  });
+
   testWidgets('Round grid and both sliders save settings immediately', (
     t,
   ) async {

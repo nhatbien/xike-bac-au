@@ -67,8 +67,8 @@ class _BackupSettingsCardState extends State<BackupSettingsCard> {
       final filename = 'xike-backup-$timestamp.json';
       final result = await SharePlus.instance.share(
         ShareParams(
-          title: 'Sao lưu Xì ke bắc âu',
-          subject: 'Dữ liệu tập Xì ke bắc âu',
+          title: 'Sao lưu Ìe Bắc Âu',
+          subject: 'Dữ liệu tập Ìe Bắc Âu',
           files: [
             XFile.fromData(
               contents,

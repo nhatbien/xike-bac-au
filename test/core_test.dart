@@ -32,6 +32,57 @@ void main() {
     totalDurationSeconds: seconds,
     totalHoldSeconds: rounds * hold,
   );
+  test('Imported voices have valid cues for all session durations', () {
+    expect(BreathingSettings.fromJson({}).voice, GuidanceVoice.original);
+    expect(
+      BreathingSettings.fromJson({'voice': 'unknown'}).voice,
+      GuidanceVoice.original,
+    );
+    for (final voice in GuidanceVoice.values) {
+      final selected = AudioManifest.parse(
+        File(voice.manifestAsset).readAsStringSync(),
+      );
+      final voiceBytes = File(voice.audioAsset).lengthSync();
+      expect(
+        File('assets/am-thanh/nhac.pcm').lengthSync(),
+        selected.musicSamples * 2,
+      );
+      for (final phrase in selected.phrases.values) {
+        for (final cue in phrase.cues) {
+          expect(
+            (cue.startSample + cue.sampleCount) * 2,
+            lessThanOrEqualTo(voiceBytes),
+          );
+        }
+      }
+      final calc = DurationCalculator(
+        manifest,
+        voiceManifests: {voice: selected},
+      );
+      for (final hold in [15, 20, 45, 90, 600]) {
+        for (final recovery in [5, 10, 40, 60]) {
+          final config = BreathingSettings(
+            voice: voice,
+            rounds: 10,
+            holdSeconds: hold,
+            recoverySeconds: recovery,
+          );
+          final restored = BreathingSettings.fromJson(config.toJson());
+          expect(restored.voice, voice);
+          final engine = BreathingEngine(restored, selected);
+          expect(calc.milliseconds(restored), engine.totalMs);
+          for (final cue in engine.voices) {
+            expect(cue.sample, greaterThanOrEqualTo(0));
+            expect(
+              cue.sample + cue.count,
+              lessThanOrEqualTo(engine.totalSamples),
+            );
+          }
+        }
+      }
+    }
+  });
+
   test('Metadata matches actual PCM; all offsets in range', () {
     final bytes = File('assets/am-thanh/giong.pcm').lengthSync();
     expect(

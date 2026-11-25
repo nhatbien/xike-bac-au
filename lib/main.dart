@@ -42,7 +42,7 @@ class XikeApp extends StatelessWidget {
   const XikeApp({super.key});
   @override
   Widget build(BuildContext context) => GetMaterialApp(
-    title: 'Xì ke bắc âu',
+    title: 'Ìe Bắc Âu',
     debugShowCheckedModeBanner: false,
     theme: appTheme(),
     themeMode: ThemeMode.light,

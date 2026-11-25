@@ -5,8 +5,10 @@ import 'time_formatter.dart';
 
 class DurationCalculator {
   final AudioManifest manifest;
-  const DurationCalculator(this.manifest);
-  int milliseconds(BreathingSettings s) => BreathingEngine(s, manifest).totalMs;
+  final Map<GuidanceVoice, AudioManifest> voiceManifests;
+  const DurationCalculator(this.manifest, {this.voiceManifests = const {}});
+  int milliseconds(BreathingSettings s) =>
+      BreathingEngine(s, voiceManifests[s.voice] ?? manifest).totalMs;
   int minutes(BreathingSettings s) => (milliseconds(s) / 60000).floor();
   String summary(BreathingSettings s) =>
       '${s.rounds} hiệp · nín ${clock(s.holdSeconds)} · giữ ${s.recoverySeconds} giây';

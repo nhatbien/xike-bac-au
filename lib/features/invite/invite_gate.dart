@@ -66,7 +66,7 @@ class _InviteGateState extends State<InviteGate> {
           const SizedBox(height: 56),
           const Icon(Icons.spa_outlined, size: 64, color: AppColors.coral),
           const SizedBox(height: 20),
-          Text('Xì ke bắc âu', style: serif(32), textAlign: TextAlign.center),
+          Text('Ìe Bắc Âu', style: serif(32), textAlign: TextAlign.center),
           const SizedBox(height: 24),
           DashedBorderCard(
             child: Column(
